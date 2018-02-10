@@ -1,0 +1,3 @@
+USERNAME: admin
+EMAIL: admin@djangotutorial.com
+PASSWORD: adminpassword
