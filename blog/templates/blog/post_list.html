@@ -10,12 +10,12 @@
     </div>
 
     <div>
-      <h2>Primo Post!</h2>
-      <p>Anche se è stato <strong>scritto</strong> a mano in HTML è pur sempre un post!</p>
+      {%for post in posts %}
+        <div>
+          <h2><a href="">{{post.title}}</a></h2>
+          <p>Publicato il {{post.published_date}}</p>
+          <p>{{post.text|linebreaksbr}}</p>
+      {%endfor %}
     </div>
-
-    <div>
-      <h2>Devo studiare biologia =(</h2>
-      <p>Ma chi c'ha voglia ora di vedere delle <em>membrane</em>...poi non è che voglio fare il medico da grande!</p>
   </body>
 </html>
