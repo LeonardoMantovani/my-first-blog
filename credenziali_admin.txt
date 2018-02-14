@@ -1,3 +1,12 @@
 USERNAME: admin
 EMAIL: admin@djangotutorial.com
 PASSWORD: adminpassword
+
+----
+GITHUB
+
+https://github.com/LeonardoMantovani/my-first-blog.git
+
+username: LeoMantovani
+email: leonardo@mantovani.us
+password: leosilmi192820
