@@ -1,20 +1,28 @@
+{% load staticfiles%} <!--Carica i file statici-->
 <html>
   <head>
     <title>DjangoTutorial - Post List</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> <!-- Queste due righe servono a implementare il CSS di bootstrap -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}"> <!--Specifica dove andare a prendere i file statici-->
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Indie+Flower|Kavivanar|Roboto+Mono" rel="stylesheet">  <!--Importa da GoogleFont i font usati-->
+
   </head>
   <body>
-    <div>
+    <div class="page-header">
       <h1>DjangoTutorial - Post List</h1>
       <h3>La prima pagina del blog realizzato seguendo il tutorial per Django</h3>
       <br />
     </div>
 
-    <div>
+    <div class="post">
       {%for post in posts %}
         <div>
-          <h2><a href="">{{post.title}}</a></h2>
-          <p>Publicato il {{post.published_date}}</p>
-          <p>{{post.text|linebreaksbr}}</p>
+          <h2><strong><a href="" class="posttitle">{{post.title}}</a></strong></h2>
+          <p class="date">Publicato il {{post.published_date}}</p>
+          <p class="posttext">{{post.text|linebreaksbr}}</p>
+        </div>
       {%endfor %}
     </div>
   </body>

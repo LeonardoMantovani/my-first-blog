@@ -1,0 +1,32 @@
+/*Stile per l'intestazione del blog*/
+.page-header {
+  background-color: #1ED699;
+  margin-top: 0;
+  padding: 20px 20px 20px 40px;
+}
+
+/*Stili per i testi dell'intestazione*/
+.page-header h1 {
+  color: #000000;
+  font-family: 'Kavivanar', cursive;
+}
+.page-header h3 {
+  color: #000000;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/*Stili per i testi di ogni Post*/
+.posttitle {
+  color: #000000;
+  font-family: 'Indie Flower', cursive;
+  margin-left: 20px;
+}
+.date {
+  color: #0F4030;
+  font-family: 'Fjalla One', sans-serif;
+  margin-left: 30px;
+}
+.posttext {
+  color: #000000;
+  margin-left: 20px;
+}
