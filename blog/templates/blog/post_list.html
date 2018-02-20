@@ -1,29 +1,15 @@
-{% load staticfiles%} <!--Carica i file statici-->
-<html>
-  <head>
-    <title>DjangoTutorial - Post List</title>
+{% extends 'blog/base.html' %} <!--Estendi il file HTML di base-->
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> <!-- Queste due righe servono a implementare il CSS di bootstrap -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}"> <!--Specifica dove andare a prendere i file statici-->
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Indie+Flower|Kavivanar|Roboto+Mono" rel="stylesheet">  <!--Importa da GoogleFont i font usati-->
-
-  </head>
-  <body>
-    <div class="page-header">
-      <h1>DjangoTutorial - Post List</h1>
-      <h3>La prima pagina del blog realizzato seguendo il tutorial per Django</h3>
-      <br />
-    </div>
-
-    <div class="post">
-      {%for post in posts %}
-        <div>
-          <h2><strong><a href="" class="posttitle">{{post.title}}</a></strong></h2>
-          <p class="date">Publicato il {{post.published_date}}</p>
-          <p class="posttext">{{post.text|linebreaksbr}}</p>
-        </div>
-      {%endfor %}
-    </div>
-  </body>
-</html>
+<!--Contenuto da inserire nell'HTML di base-->
+{% block content %}
+  {% load staticfiles%} <!--Carica i file statici-->
+  <div class="post">
+    {%for post in posts %}
+      <div>
+        <h2><strong><a href="{% url 'post_detail' pk=post.pk %}" class="posttitle">{{post.title}}</a></strong></h2>
+        <p class="date">Publicato il {{post.published_date}}</p>
+        <p class="posttext">{{post.text|linebreaksbr}}</p>
+      </div>
+    {%endfor %}
+  </div>
+{% endblock %}
