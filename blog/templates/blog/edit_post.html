@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <div class="new_post">
+    <h2>New Post</h2>
+    <form method="POST">{% csrf_token %}  <!--method="POST" NON SI RIFERISCE AL POST DI UN BLOG MA AL VERBO INGLESE posting E SIGNIFICA CHE I DATI IMMESSI SARANNO REPERIBILI CON request.POST || csfr_token ASSICURA CHE VENGANO COMPILATI TUTTI I CAMPI DEL FORM-->
+      {{form.as_p}} <!--MOSTRA IL FORM-->
+      <button type="submit">SAVE</button> <!--AGGIUNGI UN PULSANTE SAVE-->
+    </form>
+  </div>
+{% endblock %}

@@ -4,8 +4,13 @@
 <div class="post">
   {% if post.published_date %}
     <div class="date">
-      {{post.published_date}}
+      <p>{{post.published_date}} || {{post.author}}</p>
     </div>
+    {% if user == post.author %}
+    <div class="editbutton">
+      <a href="{% url 'edit_post' pk=post.pk %}"><i class="material-icons md-36">mode_edit</i></a>
+    </div>
+    {% endif %}
     <h2 class="posttitle"><strong>{{post.title}}</strong></h2>
     <p class="posttext">{{post.text|linebreaksbr}}</p>
   {% endif %}

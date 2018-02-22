@@ -7,7 +7,7 @@
     {%for post in posts %}
       <div>
         <h2><strong><a href="{% url 'post_detail' pk=post.pk %}" class="posttitle">{{post.title}}</a></strong></h2>
-        <p class="date">Publicato il {{post.published_date}}</p>
+        <p class="date">Publicato il {{post.published_date}} da {{post.author}}</p>
         <p class="posttext">{{post.text|linebreaksbr}}</p>
       </div>
     {%endfor %}

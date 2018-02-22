@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}"> <!--Specifica dove andare a prendere i file statici-->
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Indie+Flower|Kavivanar|Roboto+Mono" rel="stylesheet">  <!--Importa da GoogleFont i font usati-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!--Importa da google le icone-->
   </head>
   <body>
     <div class="page-header">
-      <h1>DjangoTutorial</h1>
+      {% if user.is_authenticated %}
+      <div class="addpost">
+        <a href="{% url 'new_post' %}"><i class="material-icons md-48">add_circle_outline</i></a>  <!--Link per la creazione di un nuovo post che usa un'immagine e non un testo-->
+      </div>
+      {% endif %}
+      <h1><a href="{% url 'post_list' %}">DjangoTutorial</a></h1>
       <h3>Il mio blog realizzato seguendo il tutorial per Django</h3>
       <br />
     </div>
