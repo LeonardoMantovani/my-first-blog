@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.shortcuts import redirect
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from .models import Post
 from .forms import PostForm
+from django.contrib.auth.forms import UserCreationForm
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-created_date') #CREIAMO UNA VARIABILE CONTENENTE I POST PUBBLICATI
@@ -42,3 +45,23 @@ def edit_post(request, pk):
         form = PostForm(instance=post)
 
     return render(request, 'blog/edit_post.html', {'form': form})
+
+def singup(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+
+            return render(request, 'blog/registration_success.html', {'username': username})
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'blog/singup.html', {'form': form})
+
+def remove_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('post_list')

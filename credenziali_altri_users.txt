@@ -1,0 +1,10 @@
+SUPERUSERS:
+username = tester
+email = tester@djangotutorial.com
+password = testerpassword
+
+----
+UTENTI NORMALI:
+username = QuelloNuovo
+email = quellonuovo@gmail.com
+password = quellonuovopassword

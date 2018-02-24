@@ -1,7 +1,7 @@
 {% load staticfiles %} <!--Carica i file statici-->
 <html>
   <head>
-    <title>DjangoTutorial - Post List</title>
+    <title>DjangoTutorial</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> <!-- Queste due righe servono a implementare il CSS di bootstrap -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -11,12 +11,30 @@
   </head>
   <body>
     <div class="page-header">
+      {% if user.is_authenticated == False %}
+        <div class="singupbutton">
+          <a href="{% url 'singup' %}"><i class="material-icons md-48">person_add</i></a>
+        </div>
+        <div class="loginbutton">
+          <a href="{% url 'login' %}"><i class="material-icons md-48">person</i></a>
+        </div>
+      {% endif %}
       {% if user.is_authenticated %}
-      <div class="addpost">
-        <a href="{% url 'new_post' %}"><i class="material-icons md-48">add_circle_outline</i></a>  <!--Link per la creazione di un nuovo post che usa un'immagine e non un testo-->
-      </div>
+        <div class="logoutbutton">
+          <a href="{% url 'logout' %}"><i class="material-icons md-48">exit_to_app</i></a>
+        </div>
+        <div class="userhello">
+          <h3>Benvenuto, {{user.username}}</h3>
+        </div>
       {% endif %}
       <h1><a href="{% url 'post_list' %}">DjangoTutorial</a></h1>
+      {% if user.is_authenticated %}
+        {% if user.is_staff %}
+          <div class="addpostbutton">
+            <a href="{% url 'new_post' %}"><i class="material-icons md-48">add_circle_outline</i></a>  <!--Link per la creazione di un nuovo post che usa un'immagine e non un testo-->
+          </div>
+        {% endif %}
+      {% endif %}
       <h3>Il mio blog realizzato seguendo il tutorial per Django</h3>
       <br />
     </div>
