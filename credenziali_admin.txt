@@ -10,3 +10,10 @@ https://github.com/LeonardoMantovani/my-first-blog.git
 username: LeoMantovani
 email: leonardo@mantovani.us
 password: leosilmi192820
+
+------
+POSTGREE
+username: postgres
+password: leosilmi192820
+created_user: admin
+created_user password: adminpassword
