@@ -17,3 +17,10 @@ username: postgres
 password: leosilmi192820
 created_user: admin
 created_user password: adminpassword
+
+------
+HEROKU
+name: djangotutorial
+surname: LeoTrys
+email:leonardo@mantovani.us
+password: #leosilmi192820
